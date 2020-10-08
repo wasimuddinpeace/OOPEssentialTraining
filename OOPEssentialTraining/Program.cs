@@ -243,7 +243,7 @@ namespace OOPEssentialTraining
         public bool precedes(DateThirdTry otherDate) {
             return ((this.year < otherDate.year) 
                 || (this.year == otherDate.year && getMonth() < otherDate.getMonth()
-                || (year == otherDate.year && month.Equals(otherDate.month))&& day<otherDate.day)));
+                || (year == otherDate.year && month.Equals(otherDate.month))&& day<otherDate.day));
         }
     }
     // we used month since we are compairing the objects
