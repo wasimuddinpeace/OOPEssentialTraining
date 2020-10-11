@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPEssentialTraining", "OOPEssentialTraining\OOPEssentialTraining.csproj", "{006614A3-4D44-4FE4-BE97-3D407ECE9619}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOPEssentialTraining", "OOPEssentialTraining\OOPEssentialTraining.csproj", "{006614A3-4D44-4FE4-BE97-3D407ECE9619}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOPEssentialTests", "OOPEssentialTests\OOPEssentialTests.csproj", "{1A6AD925-C9A8-4EC1-9774-FA2AC654AD3C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{006614A3-4D44-4FE4-BE97-3D407ECE9619}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{006614A3-4D44-4FE4-BE97-3D407ECE9619}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{006614A3-4D44-4FE4-BE97-3D407ECE9619}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A6AD925-C9A8-4EC1-9774-FA2AC654AD3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6AD925-C9A8-4EC1-9774-FA2AC654AD3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6AD925-C9A8-4EC1-9774-FA2AC654AD3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6AD925-C9A8-4EC1-9774-FA2AC654AD3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

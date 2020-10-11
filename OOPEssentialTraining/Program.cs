@@ -103,6 +103,7 @@ namespace OOPEssentialTraining
 
     }
 
+
     public class DateThirdTry
     {
 
@@ -113,14 +114,17 @@ namespace OOPEssentialTraining
         static void Main(string[] args)
         {
             DateThirdTry dt = new DateThirdTry();
-             dt.setDate(1,1,1);
-         
+            LeapYear lp = new LeapYear();
+            lp.DateOk(2, 30, 1992);
+            //  dt.setDate(1, 1, 1);
 
+            dt.day = 15;
         }
+
 
         public void writeOutput()
         {
-            Console.WriteLine(month + " " + day + ", " + year);
+            Console.WriteLine(this.month + " " + day + ", " + year);
         }
         public void setDate(int newDay, int newMonth, int newYear)
         {
@@ -186,14 +190,16 @@ namespace OOPEssentialTraining
             }
         }
 
-        public void multiWriteOutput1(int count) {
-            while (count > 0) {
+        public void multiWriteOutput1(int count)
+        {
+            while (count > 0)
+            {
 
                 writeOutput();
                 //If we do not have thwriteoutput it is invalid
                 count--;
             }
-                         
+
         }
 
         public int getDay()
@@ -201,11 +207,13 @@ namespace OOPEssentialTraining
             return this.day;
         }
 
-        public int getYear() {
+        public int getYear()
+        {
             return this.year;
-         }
+        }
 
-        public int getMonth() {
+        public int getMonth()
+        {
             if (this.month.Equals("January", StringComparison.InvariantCultureIgnoreCase))
                 return 1;
             else if (this.month.Equals("February", StringComparison.InvariantCultureIgnoreCase))
@@ -230,54 +238,152 @@ namespace OOPEssentialTraining
                 return 11;
             else if (this.month.Equals("December", StringComparison.InvariantCultureIgnoreCase))
                 return 12;
-            else {
+            else
+            {
                 return 0;
             }
         }
         public bool isBetween(int lowyear, int highYear)
         {
-            return((this.year > lowyear) && (this.year < highYear));
+            return ((this.year > lowyear) && (this.year < highYear));
         }
 
 
-        public bool precedes(DateThirdTry otherDate) {
-            return ((this.year < otherDate.year) 
-                || (this.year == otherDate.year && getMonth() < otherDate.getMonth()
-                || (year == otherDate.year && month.Equals(otherDate.month))&& day<otherDate.day));
-        }
+        //public bool precedes(DateThirdTry otherDate)
+        //{
+        //    return ((this.year < otherDate.year)
+        //        || (this.year == otherDate.year && getMonth() < otherDate.getMonth()
+        //        || (year == otherDate.year && month.Equals(otherDate.month)) && day < otherDate.day));
+        //}
+
+
+
+
+        // we used month since we are compairing the objects
+        // we used getMonth() since we are compairing the property here not the object
+        //. Consider the definition of the method monthString in Display 4.4. Why are
+        //there no break statements in the switch statement?
+
+        //since it has to check all the cases from jan to dec
+
+
+        //The method writeOutput in Display 4.2 uses the instance variables month,
+        //day, and year, but gives no object name for these instance variables.Every
+        // instance variable must belong to some object. To what object or objects do
+        //these instance variables in the definition of writeOutput belong
+
+        //Answer: These should ideally belongs to dateSecondtry
+
+        // Rewrite the definitions of the methods getDay and getYear in Display 4. using the this parameter.
+
+
+        // Rewrite the method getMonth in Display 4.2 using the this parameter. Methods That Return a Boolean Val
+
+
+        //    In the definition of precedes in Display 4.7, we used
+        //month.equals(otherDate.month)
+        // to test whether two months are equal; but we used
+        //getMonth() < otherDate.getMonth()
+        //to test whether one month comes before another.Why did we use month in
+        //one case and getMonth in another case?
+
+        //14. What is the fundamental rule for testing methods?
+        //Every method should be tested in a program in which every other method in the testing
+        // program has already been fully tested and debugged.
     }
-    // we used month since we are compairing the objects
-    // we used getMonth() since we are compairing the property here not the object
-    //. Consider the definition of the method monthString in Display 4.4. Why are
-    //there no break statements in the switch statement?
 
-    //since it has to check all the cases from jan to dec
+    public class LeapYear
+    {
+        public string month;
+        public int day;
+        public int year;
+
+        public bool DateOk(int _month, int _day, int _year)
+        {
+
+            if (this.getDaysInAMonth(_year,_day) == 29 || this.getDaysInAMonth(_year,_day) == 28)
+            {
+
+                return ((_month >= 1) && (_month <= 12) && (_year >= 1000) && (_year <= 9999));
+            }
+            return false;
+
+        }
+
+        public int getDaysInAMonth(int year, int _day)
+         {
+            int[] daysIfLeapYear = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            int[] daysIfNotLeapYear = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+            if (this.FindLeapYear(year) == true && daysIfLeapYear[0] == 31 && daysIfLeapYear[1] == 29 && daysIfLeapYear[2] == 31
+                    && daysIfLeapYear[3] == 30 && daysIfLeapYear[4] == 31 && daysIfLeapYear[5] == 30
+                    && daysIfLeapYear[6] == 31 && daysIfLeapYear[7] == 31 && daysIfLeapYear[8] == 30
+                    && daysIfLeapYear[9] == 31 && daysIfLeapYear[10] == 30 && daysIfLeapYear[11] == 31)
+            {
+
+                int daysInJan = daysIfLeapYear[0];
+                int daysInfeb = daysIfLeapYear[1];
+                int daysInMarch = daysIfLeapYear[2];
+                int daysInApril = daysIfLeapYear[3];
+                int daysInMay = daysIfLeapYear[4];
+                int daysInJune = daysIfLeapYear[5];
+                int daysIuly = daysIfLeapYear[6];
+                int daysInAugust = daysIfLeapYear[7];
+                int daysInSeptember = daysIfLeapYear[8];
+                int daysInOctober = daysIfLeapYear[9];
+                int daysInNovember = daysIfLeapYear[10];
+                int daysInDec = daysIfLeapYear[11];
+                if (_day > daysInJan || _day > daysInfeb || _day > daysInMarch || _day > daysInApril || _day > daysInMay || _day > daysInJune || _day > daysIuly || _day > daysInAugust
+                        || _day > daysInSeptember || _day > daysInOctober || _day > daysInNovember || _day > daysInDec)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                return daysIfLeapYear[1];
+            }
+            else if (daysIfNotLeapYear[0] == 31 && daysIfNotLeapYear[1] == 28 && daysIfNotLeapYear[2] == 31
+                    && daysIfNotLeapYear[3] == 30 && daysIfNotLeapYear[4] == 31 && daysIfNotLeapYear[5] == 30
+                    && daysIfNotLeapYear[6] == 31 && daysIfNotLeapYear[7] == 31 && daysIfNotLeapYear[8] == 30
+                    && daysIfNotLeapYear[9] == 31 && daysIfNotLeapYear[10] == 30 && daysIfNotLeapYear[11] == 31)
+            {
+                int daysInJan = daysIfNotLeapYear[0];
+                int daysInfeb = daysIfNotLeapYear[1];
+                int daysInMarch = daysIfNotLeapYear[2];
+                int daysInApril = daysIfNotLeapYear[3];
+                int daysInMay = daysIfNotLeapYear[4];
+                int daysInJune = daysIfNotLeapYear[5];
+                int daysIuly = daysIfNotLeapYear[6];
+                int daysInAugust = daysIfNotLeapYear[7];
+                int daysInSeptember = daysIfNotLeapYear[8];
+                int daysInOctober = daysIfNotLeapYear[9];
+                int daysInNovember = daysIfNotLeapYear[10];
+                int daysInDec = daysIfNotLeapYear[11];
+                if (_day > daysInJan || _day > daysInfeb || _day > daysInMarch || _day > daysInApril || _day > daysInMay || _day > daysInJune || _day > daysIuly || _day > daysInAugust
+                        || _day > daysInSeptember || _day > daysInOctober || _day > daysInNovember || _day > daysInDec)
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
+                return daysIfNotLeapYear[1];
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+        }
 
 
-    //The method writeOutput in Display 4.2 uses the instance variables month,
-    //day, and year, but gives no object name for these instance variables.Every
-    // instance variable must belong to some object. To what object or objects do
-    //these instance variables in the definition of writeOutput belong
+        public bool FindLeapYear(int year)
+        {
+            if (year % 4 == 0 || year % 400 == 0 && year % 100 != 0)
+            {
+                return true;
+            }
+            return false;
 
-    //Answer: These should ideally belongs to dateSecondtry
+        }
 
-    // Rewrite the definitions of the methods getDay and getYear in Display 4. using the this parameter.
-
-
-    // Rewrite the method getMonth in Display 4.2 using the this parameter. Methods That Return a Boolean Val
-
-
-    //    In the definition of precedes in Display 4.7, we used
-    //month.equals(otherDate.month)
-    // to test whether two months are equal; but we used
-    //getMonth() < otherDate.getMonth()
-    //to test whether one month comes before another.Why did we use month in
-    //one case and getMonth in another case?
-
-    //14. What is the fundamental rule for testing methods?
-    //Every method should be tested in a program in which every other method in the testing
-   // program has already been fully tested and debugged.
+    }
 }
+
 //10,9,8,7,6,5,4,3,2,1
 //Have to do 10 -19 tomorrow
 
